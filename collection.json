@@ -1,0 +1,128 @@
+{
+  "info": {
+    "name": "Pet Store API",
+    "description": "A simple pet store API",
+    "version": "1.0.0",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "listPets",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pets?limit=0",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pets"
+          ],
+          "query": [
+            {
+              "key": "limit",
+              "value": "0",
+              "description": "How many items to return",
+              "disabled": true
+            }
+          ]
+        },
+        "description": "List all pets"
+      },
+      "response": []
+    },
+    {
+      "name": "createPet",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"string\",\n  \"tag\": \"string\",\n  \"status\": \"available\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/pets",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pets"
+          ]
+        },
+        "description": "Create a pet"
+      },
+      "response": []
+    },
+    {
+      "name": "getPetById",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pets/:petId",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pets",
+            ":petId"
+          ],
+          "variable": [
+            {
+              "key": "petId",
+              "value": "string",
+              "description": "The id of the pet to retrieve"
+            }
+          ]
+        },
+        "description": "Info for a specific pet"
+      },
+      "response": []
+    },
+    {
+      "name": "deletePet",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/pets/:petId",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "pets",
+            ":petId"
+          ],
+          "variable": [
+            {
+              "key": "petId",
+              "value": "string",
+              "description": "The id of the pet to delete"
+            }
+          ]
+        },
+        "description": "Delete a pet"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://petstore.example.com/v1",
+      "type": "string",
+      "description": "Base URL for the API"
+    }
+  ]
+}
